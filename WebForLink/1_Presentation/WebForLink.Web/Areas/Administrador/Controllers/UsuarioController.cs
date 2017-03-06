@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using WebForLink.ApplicationService.Interfaces;
-using WebForLink.Domain.Interfaces.Services;
+using WebForLink.Domain.Entities;
 
 namespace WebForLink.Web.Areas.Administrador.Controllers
 {
@@ -17,7 +17,7 @@ namespace WebForLink.Web.Areas.Administrador.Controllers
         // GET: Administrador/Usuario
         public ActionResult Index()
         {
-            var nelson = new Domain.Entities.Usuario("nelson.neto");
+            var nelson = new Usuario("nelson.neto");
             _ContratantefornecedorService.CriarFornecedorIndividual(nelson);
             var usuario = _ContratantefornecedorService.Buscar(1);
             return View();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Practices.ServiceLocation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,8 @@ namespace WebForLink.Data
     public class UnitOfWork<TContext> : IUnitOfWork<TContext>, IDisposable
         where TContext : IDbContext, new()
     {
-        private readonly ContextManager<TContext> _contextManager = new ContextManager<TContext>();
-            //ServiceLocator.Current.GetInstance<IContextManager<TContext>>() as ContextManager<TContext>;
+        private readonly ContextManager<TContext> _contextManager = 
+            ServiceLocator.Current.GetInstance<IContextManager<TContext>>() as ContextManager<TContext>;
 
         private readonly IDbContext _dbContext;
         private bool _disposed;

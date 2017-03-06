@@ -5,7 +5,6 @@ using WebForLink.CrossCutting.InversionControl.Modules;
 
 namespace WebForLink.InversionOfConcerns
 {
-
     public class IoC
     {
         public IoC()
