@@ -9,7 +9,7 @@ namespace WebForLink.Win
         {
             Programa prog = new Programa();
             prog.CriarListaDeUsuarios();
-            prog.EnviarEmails();
+            //prog.EnviarEmails();
         }
     }
 }

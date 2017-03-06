@@ -29,6 +29,7 @@ namespace WebForLink.ApplicationService.Services
         public Usuario CriarFornecedorIndividual(Usuario usuario)
         {
             _usuarioRepository.Insert(usuario);
+            _usuarioRepository.Commit();
             return usuario;
         }
 
@@ -52,6 +53,16 @@ namespace WebForLink.ApplicationService.Services
         {
             usuario.SetLogin(login);
             _usuarioRepository.Update(usuario);
+        }
+
+        public void Commit()
+        {
+            _usuarioRepository.Commit();
+        }
+
+        public void Rollback()
+        {
+            _usuarioRepository.Rollback();
         }
     }
 }

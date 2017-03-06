@@ -3,7 +3,7 @@ using WebForLink.Domain.Entities;
 
 namespace WebForLink.ApplicationService.Interfaces
 {
-    public interface IUsuarioAppService
+    public interface IUsuarioAppService : IAppService
     {
         IQueryable<Usuario> Pesquisar(int idContratante);
         Usuario CriarFornecedorIndividual(Usuario usuario);

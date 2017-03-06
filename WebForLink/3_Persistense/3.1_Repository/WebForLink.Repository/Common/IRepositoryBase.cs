@@ -10,5 +10,8 @@ namespace WebForLink.Repository.Common
         TEntity Insert(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity);
+        void BeginTransaction();
+        void Commit();
+        void Rollback();
     }
 }

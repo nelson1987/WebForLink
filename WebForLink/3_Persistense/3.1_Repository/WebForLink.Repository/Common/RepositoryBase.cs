@@ -68,6 +68,19 @@ namespace WebForLink.Repository.Common
             _dbSet.Remove(entity);
         }
 
+        public void BeginTransaction()
+        {
+        }
+
+        public void Commit()
+        {
+            _context.SaveChanges();
+        }
+
+        public void Rollback()
+        {
+            _context.Dispose();
+        }
 
         public void Dispose()
         {

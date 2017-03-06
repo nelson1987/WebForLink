@@ -2,6 +2,9 @@
 {
     public class Usuario
     {
+        protected Usuario()
+        {
+        }
         public Usuario(string login)
         {
             Login = login;
