@@ -1,37 +1,32 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using WebForLink.ApplicationService.Common;
 using WebForLink.ApplicationService.Interfaces;
+using WebForLink.ApplicationService.Services.Common;
 using WebForLink.Data;
 using WebForLink.Domain.Entities;
-using WebForLink.Repository.Interfaces;
-using WebForLink.Repository.Process;
+using WebForLink.Domain.Interfaces.Services;
 
 namespace WebForLink.ApplicationService.Services
 {
     public class UsuarioAppService : AppService<WebForLinkContexto>, IUsuarioAppService
     {
-        private IUsuarioRepository _usuarioRepository;        
+        private IUsuarioService _usuarioRepository;
 
-        public UsuarioAppService(IUsuarioRepository usuarioRepository)
+        public UsuarioAppService(IUsuarioService usuarioService)
         {
-            _usuarioRepository = usuarioRepository;
-        }
-
-        public UsuarioAppService()
-        {
-            _usuarioRepository = new UsuarioRepository();
+            _usuarioRepository = usuarioService;
         }
 
         public IQueryable<Usuario> Pesquisar(int idContratante)
         {
-            return _usuarioRepository.Select();
+            var repository = _usuarioRepository.Get(idContratante);
+            throw new NotImplementedException();
         }
 
         public Usuario CriarFornecedorIndividual(Usuario usuario)
         {
-            _usuarioRepository.Insert(usuario);
+            _usuarioRepository.Add(usuario);
             return usuario;
         }
 
@@ -47,14 +42,16 @@ namespace WebForLink.ApplicationService.Services
 
         public void AlterarSenha(Usuario usuario, string senha)
         {
-            usuario.SetSenha(senha);
-            _usuarioRepository.Update(usuario);
+            //usuario.SetSenha(senha);
+            //_usuarioRepository.Update(usuario);
+            throw new NotImplementedException();
         }
 
         public void AlterarLogin(Usuario usuario, string login)
         {
-            usuario.SetLogin(login);
-            _usuarioRepository.Update(usuario);
+            //usuario.SetLogin(login);
+            //_usuarioRepository.Update(usuario);
+            throw new NotImplementedException();
         }
 
         public ValidationResult CriarSolicitado(Usuario solicitado)
@@ -62,9 +59,5 @@ namespace WebForLink.ApplicationService.Services
             throw new NotImplementedException();
         }
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

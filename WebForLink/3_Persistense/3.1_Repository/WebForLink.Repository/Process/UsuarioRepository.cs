@@ -1,8 +1,7 @@
-﻿using System;
-using WebForLink.Data;
+﻿using WebForLink.Data;
 using WebForLink.Domain.Entities;
+using WebForLink.Domain.Interfaces.Repository;
 using WebForLink.Repository.Common;
-using WebForLink.Repository.Interfaces;
 
 namespace WebForLink.Repository.Process
 {

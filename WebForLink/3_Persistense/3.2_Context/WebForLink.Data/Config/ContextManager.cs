@@ -15,9 +15,10 @@ namespace WebForLink.Data.Config
 
         public IDbContext GetContext()
         {
-            if (HttpContext.Current.Items[_contextKey] == null)
-                HttpContext.Current.Items[_contextKey] = new TContext();
-            return HttpContext.Current.Items[_contextKey] as IDbContext;
+            return new WebForLinkContexto();
+            //if (HttpContext.Current.Items[_contextKey] == null)
+            //    HttpContext.Current.Items[_contextKey] = new TContext();
+            //return HttpContext.Current.Items[_contextKey] as IDbContext;
         }
 
         public void Finish()

@@ -4,6 +4,7 @@ using System.Linq;
 using WebForLink.Data;
 using WebForLink.Data.Config;
 using WebForLink.Data.Interfaces;
+using WebForLink.Domain.Interfaces.Repository.Common;
 
 namespace WebForLink.Repository.Common
 {

@@ -30,3 +30,5 @@ WebForLink/3_Persistense/3\.1_Repository/WebForLink\.Repository/bin/Debug/
 WebForLink/4_CrossCutting/4\.1_FrameworkCH/FrameworkCH/bin/Debug/
 
 WebForLink/0_Domain/WebForLink\.Domain\.Tests/bin/Debug/
+
+WebForLink/4_CrossCutting/4\.2_IoC/WebForLink\.InversionOfConcerns/obj/Debug/
