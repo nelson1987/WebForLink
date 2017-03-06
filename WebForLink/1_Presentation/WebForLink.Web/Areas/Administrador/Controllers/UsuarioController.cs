@@ -19,7 +19,7 @@ namespace WebForLink.Web.Areas.Administrador.Controllers
         {
             var nelson = new Usuario("nelson.neto");
             _ContratantefornecedorService.CriarFornecedorIndividual(nelson);
-            var usuario = _ContratantefornecedorService.Buscar(1);
+            //var usuario = _ContratantefornecedorService.Buscar(1);
             return View();
         }
     }

@@ -2,6 +2,7 @@
 using WebForLink.ApplicationService.Interfaces;
 using WebForLink.ApplicationService.Services;
 using WebForLink.ApplicationService.Services.Common;
+using WebForLink.Data;
 
 namespace WebForLink.CrossCutting.InversionControl.Modules
 {
@@ -9,7 +10,7 @@ namespace WebForLink.CrossCutting.InversionControl.Modules
     {
         public override void Load()
         {
-            Bind(typeof(IAppService<>)).To(typeof(AppService<>));
+            Bind(typeof(IAppService<WebForLinkContexto>)).To(typeof(AppService<WebForLinkContexto>));
 
             Bind<IUsuarioAppService>().To<UsuarioAppService>();
         }

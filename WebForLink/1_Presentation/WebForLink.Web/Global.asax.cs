@@ -1,6 +1,6 @@
 ﻿using log4net;
-using ServiceLocation;
-//using Microsoft.Practices.ServiceLocation;
+using log4net.Config;
+using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Reflection;
 using System.Web;
@@ -12,11 +12,14 @@ using WebForLink.Data;
 using WebForLink.Data.Config;
 using WebForLink.Data.Interfaces;
 
+[assembly: XmlConfigurator(Watch = true)]
+
 namespace WebForLink.Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {
         public static ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         protected void Application_Start()
         {
             try
