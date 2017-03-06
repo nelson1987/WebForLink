@@ -1,4 +1,5 @@
 ﻿using log4net;
+using ServiceLocation;
 //using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Reflection;
@@ -98,13 +99,13 @@ namespace WebForLink.Web
         {
             try
             {
-                //var contextManager =
-                //    ServiceLocator.Current.GetInstance<IContextManager<WebForLinkContexto>>() as
-                //        ContextManager<WebForLinkContexto>;
-                //if (contextManager != null)
-                //{
-                //    contextManager.GetContext().Dispose();
-                //}
+                var contextManager =
+                    ServiceLocator.Current.GetInstance<IContextManager<WebForLinkContexto>>() as
+                        ContextManager<WebForLinkContexto>;
+                if (contextManager != null)
+                {
+                    contextManager.GetContext().Dispose();
+                }
             }
             catch (Exception ex)
             {
@@ -116,13 +117,13 @@ namespace WebForLink.Web
         {
             try
             {
-                //var contextManager  =
-                //    ServiceLocator.Current.GetInstance<IContextManager<WebForLinkContexto>>() as
-                //        ContextManager<WebForLinkContexto>;
-                //if (contextManager != null)
-                //{
-                //    contextManager.GetContext().Dispose();
-                //}
+                var contextManager  =
+                    ServiceLocator.Current.GetInstance<IContextManager<WebForLinkContexto>>() as
+                        ContextManager<WebForLinkContexto>;
+                if (contextManager != null)
+                {
+                    contextManager.GetContext().Dispose();
+                }
             }
             catch (Exception ex)
             {
@@ -134,13 +135,13 @@ namespace WebForLink.Web
         {
             try
             {
-                //var contextManager =
-                //    ServiceLocator.Current.GetInstance<IContextManager<WebForLinkContexto>>() as
-                //        ContextManager<WebForLinkContexto>;
-                //if (contextManager != null)
-                //{
-                //    contextManager.GetContext().Dispose();
-                //}
+                var contextManager =
+                    ServiceLocator.Current.GetInstance<IContextManager<WebForLinkContexto>>() as
+                        ContextManager<WebForLinkContexto>;
+                if (contextManager != null)
+                {
+                    contextManager.GetContext().Dispose();
+                }
             }
             catch (Exception ex)
             {
