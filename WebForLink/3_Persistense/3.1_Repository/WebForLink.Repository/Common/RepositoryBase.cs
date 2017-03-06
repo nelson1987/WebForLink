@@ -2,23 +2,35 @@
 using System.Data.Entity;
 using System.Linq;
 using WebForLink.Data;
+using WebForLink.Data.Config;
+using WebForLink.Data.Interfaces;
 
 namespace WebForLink.Repository.Common
 {
-    public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>, IDisposable where TEntity : class
+    public class RepositoryBase<TEntity, T>
+    : IRepositoryBase<TEntity>, IDisposable
+        where TEntity : class
+        where T : BaseDbContext
     {
-        internal WebForLinkContexto _context;
-        internal DbSet<TEntity> _dbSet;
+        private readonly IDbContext _context;
+        private readonly IDbSet<TEntity> _dbSet;
 
         public RepositoryBase(WebForLinkContexto context)
         {
             this._context = context;
-            this._dbSet = context.Set<TEntity>();
+            _dbSet = _context.Set<TEntity>();
+
+            //var contextManager =
+            //    ServiceLocator.Current.GetInstance<IContextManager<ChMasterDataContext>>()
+            //        as ContextManager<ChMasterDataContext>;
+
+            //_dbContext = contextManager.GetContext();
+            //_dbSet = _dbContext.Set<TEntity>();
         }
         public RepositoryBase()
         {
             this._context = new WebForLinkContexto();
-            this._dbSet = new WebForLinkContexto().Set<TEntity>();
+            _dbSet = (DbSet<TEntity>)new WebForLinkContexto().Set<TEntity>();
         }
 
         public TEntity Insert(TEntity entity)
@@ -29,7 +41,7 @@ namespace WebForLink.Repository.Common
 
         public IQueryable<TEntity> Select()
         {
-            return _dbSet;         
+            return _dbSet;
         }
         public TEntity Select(TEntity entity)
         {
@@ -68,26 +80,20 @@ namespace WebForLink.Repository.Common
             _dbSet.Remove(entity);
         }
 
-        public void BeginTransaction()
-        {
-        }
-
-        public void Commit()
-        {
-            _context.SaveChanges();
-        }
-
-        public void Rollback()
-        {
-            _context.Dispose();
-        }
-
         public void Dispose()
         {
             _context.SaveChanges();
-            _dbSet = null;
+            //_dbSet = null;
             _context.Dispose();
             GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposing) return;
+
+            if (_context == null) return;
+            _context.Dispose();
         }
     }
 }

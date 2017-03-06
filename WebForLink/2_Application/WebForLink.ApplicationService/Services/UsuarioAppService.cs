@@ -1,15 +1,18 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using WebForLink.ApplicationService.Common;
 using WebForLink.ApplicationService.Interfaces;
+using WebForLink.Data;
 using WebForLink.Domain.Entities;
 using WebForLink.Repository.Interfaces;
 using WebForLink.Repository.Process;
 
 namespace WebForLink.ApplicationService.Services
 {
-    public class UsuarioAppService : IUsuarioAppService
+    public class UsuarioAppService : AppService<WebForLinkContexto>, IUsuarioAppService
     {
-        private IUsuarioRepository _usuarioRepository;
+        private IUsuarioRepository _usuarioRepository;        
 
         public UsuarioAppService(IUsuarioRepository usuarioRepository)
         {
@@ -29,7 +32,6 @@ namespace WebForLink.ApplicationService.Services
         public Usuario CriarFornecedorIndividual(Usuario usuario)
         {
             _usuarioRepository.Insert(usuario);
-            _usuarioRepository.Commit();
             return usuario;
         }
 
@@ -55,14 +57,14 @@ namespace WebForLink.ApplicationService.Services
             _usuarioRepository.Update(usuario);
         }
 
-        public void Commit()
+        public ValidationResult CriarSolicitado(Usuario solicitado)
         {
-            _usuarioRepository.Commit();
+            throw new NotImplementedException();
         }
 
-        public void Rollback()
+        public void Dispose()
         {
-            _usuarioRepository.Rollback();
+            throw new NotImplementedException();
         }
     }
 }

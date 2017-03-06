@@ -3,7 +3,7 @@
 namespace WebForLink.ApplicationService.Interfaces.Common
 {
     public interface ITransactionAppService<TContext>
-            where TContext : IDbContext, new()
+        where TContext : IDbContext, new()
     {
         void BeginTransaction();
         void Commit();

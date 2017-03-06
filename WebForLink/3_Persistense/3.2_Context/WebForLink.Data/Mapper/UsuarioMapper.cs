@@ -14,6 +14,8 @@ namespace WebForLink.Data.Mapper
             Property(t => t.Login)
                 .IsRequired();
 
+            Ignore(t => t.ValidationResult);
+
             // Table & Column Mappings
             ToTable("WFL_USUARIO");
             Property(t => t.Id).HasColumnName("ID_USUARIO");

@@ -27,9 +27,12 @@ namespace WebForLink.Win.Process
 
             var user = new Usuario("nelson.neto");
 
+            _appService.BeginTransaction();
             var inclusaoUsuario = _appService.CriarFornecedorIndividual(user);
             _appService.AlterarSenha(user, "1234");
-            _appService.Rollback();
+            _appService.Commit();
+
+            _appService.BeginTransaction();
             _appService.AlterarSenha(user, "2345");
             _appService.Commit();
         }

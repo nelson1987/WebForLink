@@ -1,6 +1,9 @@
-﻿using System.Data.Entity.Validation;
+﻿using Microsoft.Practices.ServiceLocation;
+using System;
+using System.Data.Entity.Validation;
 using WebForLink.ApplicationService.Interfaces.Common;
 using WebForLink.Data.Interfaces;
+using WebForLink.Domain.Validation;
 
 namespace WebForLink.ApplicationService.Common
 {
@@ -18,7 +21,8 @@ namespace WebForLink.ApplicationService.Common
 
         public virtual void BeginTransaction()
         {
-            _uow = ServiceLocator.Current.GetInstance<IUnitOfWork<TContext>>();
+            //_uow = ServiceLocator.Current.GetInstance<IUnitOfWork<TContext>>();
+            _uow = new UnitOfWork()
             _uow.BeginTransaction();
         }
 
@@ -43,6 +47,11 @@ namespace WebForLink.ApplicationService.Common
                     }
                 }
             }
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
 }
