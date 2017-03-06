@@ -10,3 +10,11 @@ WebForLink/\.vs/WebForLink/v14/
 WebForLink/2_Application/WebForLink\.ApplicationService/obj/Debug/
 
 WebForLink/3_Persistense/3\.1_Repository/WebForLink\.Repository/obj/Debug/
+
+WebForLink/4_CrossCutting/4\.1_FrameworkCH/FrameworkCH/obj/Debug/
+
+WebForLink/3_Persistense/3\.2_Context/WebForLink\.Data/obj/Debug/
+
+WebForLink/0_Domain/WebForLink\.Domain/bin/Debug/
+
+WebForLink/3_Persistense/3\.2_Context/WebForLink\.Data/bin/Debug/

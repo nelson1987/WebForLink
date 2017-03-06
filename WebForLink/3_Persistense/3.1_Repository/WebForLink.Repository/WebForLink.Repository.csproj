@@ -40,8 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\Repository.cs" />
-    <Compile Include="Common\IRepository.cs" />
+    <Compile Include="Common\RepositoryBase.cs" />
+    <Compile Include="Common\IRepositoryBase.cs" />
     <Compile Include="Interfaces\IUsuarioRepository.cs" />
     <Compile Include="Process\UsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

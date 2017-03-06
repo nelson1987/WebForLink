@@ -3,7 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 14 for Web
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForLink", "WebForLink.csproj", "{CCB283AE-7580-44B7-8891-E664B759CC7D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForLink.Domain", "0_Domain\WebForLink.Domain\WebForLink.Domain.csproj", "{2C1198EA-3832-4778-B8BB-3C6C038C6E72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0_Domain", "0_Domain", "{B4444307-157B-42CE-8177-0B6EC73A1084}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForLink.Domain.Tests", "0_Domain\WebForLink.Domain.Tests\WebForLink.Domain.Tests.csproj", "{FD4600BE-2B6A-42C8-AE56-0F4EF75947BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2_Application", "2_Application", "{995D8900-B7CD-4C90-BA6F-5F2354D4715C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_Presentation", "1_Presentation", "{869963D7-C6C0-45AF-92F8-7D7620B41201}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_Persistense", "3_Persistense", "{134D42A6-6957-467B-A607-ACB50E82A905}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4_CrossCutting", "4_CrossCutting", "{66DA4C45-2F1E-4E26-9662-9B81722ADA61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForLink.ApplicationService", "2_Application\WebForLink.ApplicationService\WebForLink.ApplicationService.csproj", "{2219100E-8C54-4CDF-9C67-0FB2D97CFE87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1_Repository", "3.1_Repository", "{227F77A9-CC87-449D-B658-5DCB774D349A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.2_Context", "3.2_Context", "{E9A8DB06-FF83-479C-B81A-8C7A51EF6695}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForLink.Repository", "3_Persistense\3.1_Repository\WebForLink.Repository\WebForLink.Repository.csproj", "{C5477489-48E6-41F1-BBA7-A161487FE614}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForLink.Data", "3_Persistense\3.2_Context\WebForLink.Data\WebForLink.Data.csproj", "{BFB511E0-1440-4A5C-8364-2407CB4065D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +33,37 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CCB283AE-7580-44B7-8891-E664B759CC7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CCB283AE-7580-44B7-8891-E664B759CC7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CCB283AE-7580-44B7-8891-E664B759CC7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CCB283AE-7580-44B7-8891-E664B759CC7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C1198EA-3832-4778-B8BB-3C6C038C6E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C1198EA-3832-4778-B8BB-3C6C038C6E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C1198EA-3832-4778-B8BB-3C6C038C6E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C1198EA-3832-4778-B8BB-3C6C038C6E72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD4600BE-2B6A-42C8-AE56-0F4EF75947BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD4600BE-2B6A-42C8-AE56-0F4EF75947BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD4600BE-2B6A-42C8-AE56-0F4EF75947BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD4600BE-2B6A-42C8-AE56-0F4EF75947BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2219100E-8C54-4CDF-9C67-0FB2D97CFE87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2219100E-8C54-4CDF-9C67-0FB2D97CFE87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2219100E-8C54-4CDF-9C67-0FB2D97CFE87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2219100E-8C54-4CDF-9C67-0FB2D97CFE87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5477489-48E6-41F1-BBA7-A161487FE614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5477489-48E6-41F1-BBA7-A161487FE614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5477489-48E6-41F1-BBA7-A161487FE614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5477489-48E6-41F1-BBA7-A161487FE614}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFB511E0-1440-4A5C-8364-2407CB4065D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFB511E0-1440-4A5C-8364-2407CB4065D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFB511E0-1440-4A5C-8364-2407CB4065D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFB511E0-1440-4A5C-8364-2407CB4065D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2C1198EA-3832-4778-B8BB-3C6C038C6E72} = {B4444307-157B-42CE-8177-0B6EC73A1084}
+		{FD4600BE-2B6A-42C8-AE56-0F4EF75947BC} = {B4444307-157B-42CE-8177-0B6EC73A1084}
+		{2219100E-8C54-4CDF-9C67-0FB2D97CFE87} = {995D8900-B7CD-4C90-BA6F-5F2354D4715C}
+		{227F77A9-CC87-449D-B658-5DCB774D349A} = {134D42A6-6957-467B-A607-ACB50E82A905}
+		{E9A8DB06-FF83-479C-B81A-8C7A51EF6695} = {134D42A6-6957-467B-A607-ACB50E82A905}
+		{C5477489-48E6-41F1-BBA7-A161487FE614} = {227F77A9-CC87-449D-B658-5DCB774D349A}
+		{BFB511E0-1440-4A5C-8364-2407CB4065D6} = {E9A8DB06-FF83-479C-B81A-8C7A51EF6695}
 	EndGlobalSection
 EndGlobal
