@@ -26,7 +26,9 @@ namespace WebForLink.ApplicationService.Services
 
         public Usuario CriarFornecedorIndividual(Usuario usuario)
         {
+            BeginTransaction();
             _usuarioRepository.Add(usuario);
+            Commit();
             return usuario;
         }
 
@@ -42,16 +44,18 @@ namespace WebForLink.ApplicationService.Services
 
         public void AlterarSenha(Usuario usuario, string senha)
         {
-            //usuario.SetSenha(senha);
-            //_usuarioRepository.Update(usuario);
-            throw new NotImplementedException();
+            BeginTransaction();
+            usuario.SetSenha(senha);
+            _usuarioRepository.Update(usuario);
+            Commit();
         }
 
         public void AlterarLogin(Usuario usuario, string login)
         {
-            //usuario.SetLogin(login);
-            //_usuarioRepository.Update(usuario);
-            throw new NotImplementedException();
+            BeginTransaction();
+            usuario.SetLogin(login);
+            _usuarioRepository.Update(usuario);
+            Commit();
         }
 
         public ValidationResult CriarSolicitado(Usuario solicitado)
@@ -59,5 +63,9 @@ namespace WebForLink.ApplicationService.Services
             throw new NotImplementedException();
         }
 
+        public Usuario Buscar(int id)
+        {
+            return _usuarioRepository.Get(id);
+        }
     }
 }

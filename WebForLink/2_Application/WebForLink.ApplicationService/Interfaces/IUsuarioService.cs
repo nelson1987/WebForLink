@@ -12,6 +12,7 @@ namespace WebForLink.ApplicationService.Interfaces
         Usuario CriarAncora(Usuario usuario);
         void AlterarSenha(Usuario usuario, string senha);
         void AlterarLogin(Usuario usuario, string login);
+        Usuario Buscar(int v);
         //ValidationResult CriarSolicitado(Usuario solicitado);
     }
 }

@@ -20,7 +20,7 @@ namespace WebForLink.Data
         public WebForLinkContexto()
             : base("Name=WebForLinkContexto")
         {
-            Database.SetInitializer<WebForLinkContexto>(null);
+            //Database.SetInitializer<WebForLinkContexto>(null);
             Database.Log = sql => Debug.Write(sql);
         }
 
@@ -35,13 +35,7 @@ namespace WebForLink.Data
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>(); //Pluraliza de Tabelas
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>(); //Deletar em cascata
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>(); //Deletar em cascata
-
-            //modelBuilder.Properties()
-            //    .Where(p => p.Name.Equals("ValidationResult"))
-            //    .Configure(p => p.igno);
-            //modelBuilder.Ignore()
-            //Ignore(t => t.ValidationResult);
-            //modelBuilder.Types().Configure(c => c.Ignore("IsDeleted"));
+            
             modelBuilder.Ignore<ValidationResult>();
 
             modelBuilder.Properties()

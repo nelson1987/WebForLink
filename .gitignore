@@ -32,3 +32,7 @@ WebForLink/4_CrossCutting/4\.1_FrameworkCH/FrameworkCH/bin/Debug/
 WebForLink/0_Domain/WebForLink\.Domain\.Tests/bin/Debug/
 
 WebForLink/4_CrossCutting/4\.2_IoC/WebForLink\.InversionOfConcerns/obj/Debug/
+
+WebForLink/1_Presentation/WebForLink\.Web/obj/Debug/
+
+WebForLink/WebForLink\.Web\.Tests/obj/Debug/
