@@ -4,9 +4,11 @@ namespace FrameworkCH.Interfaces
 {
     public interface IEmail
     {
-        string Remetente { get; set; }
-        List<string> Destinatarios { get; set; }
-        string Mensagem { get; set; }
-        string Assunto { get; set; }
+        List<string> Destinatarios { get; }
+        string Mensagem { get; }
+        string Assunto { get; }
+        void SetDestinatarios(params string[] destinatarios);
+        void SetMensagem(string mensagem);
+        void SetAssunto(string assunto);
     }
 }

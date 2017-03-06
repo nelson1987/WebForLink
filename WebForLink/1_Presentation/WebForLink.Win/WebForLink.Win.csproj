@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2219100E-8C54-4CDF-9C67-0FB2D97CFE87}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{96924A7B-548A-45B7-859C-F6DF620AC1FC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebForLink.ApplicationService</RootNamespace>
-    <AssemblyName>WebForLink.ApplicationService</AssemblyName>
+    <RootNamespace>WebForLink.Win</RootNamespace>
+    <AssemblyName>WebForLink.Win</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -29,6 +29,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -40,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IUsuarioService.cs" />
-    <Compile Include="Services\UsuarioAppService.cs" />
+    <Compile Include="Process\Programa.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,9 +52,13 @@
       <Project>{2c1198ea-3832-4778-b8bb-3c6c038c6e72}</Project>
       <Name>WebForLink.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\3_Persistense\3.1_Repository\WebForLink.Repository\WebForLink.Repository.csproj">
-      <Project>{c5477489-48e6-41f1-bba7-a161487fe614}</Project>
-      <Name>WebForLink.Repository</Name>
+    <ProjectReference Include="..\..\2_Application\WebForLink.ApplicationService\WebForLink.ApplicationService.csproj">
+      <Project>{2219100e-8c54-4cdf-9c67-0fb2d97cfe87}</Project>
+      <Name>WebForLink.ApplicationService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\4_CrossCutting\4.1_FrameworkCH\FrameworkCH\FrameworkCH.csproj">
+      <Project>{6759332f-e42d-4067-a8ce-44980d7516cc}</Project>
+      <Name>FrameworkCH</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

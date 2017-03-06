@@ -14,9 +14,9 @@ namespace WebForLink.Data
             Database.SetInitializer<WebForLinkContexto>(null);
         }
 
-        //public WebForLinkContexto() : base("Name=WebForLinkContexto") 
-        //{
-        //}
+        public WebForLinkContexto() : base("Name=WebForLinkContexto") 
+        {
+        }
 
         public DbSet<Usuario> Usuario { get; set; }
 

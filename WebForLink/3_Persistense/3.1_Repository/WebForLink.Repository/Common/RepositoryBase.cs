@@ -1,46 +1,79 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
+using WebForLink.Data;
 
 namespace WebForLink.Repository.Common
 {
-    public class RepositoryBase<T> : IRepositoryBase<T>, IDisposable where T : class
+    public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>, IDisposable where TEntity : class
     {
-        //public DataContext Context
-        //{
-        //    get;
-        //    set;
-        //}
-        public void Delete(int id)
+        internal WebForLinkContexto _context;
+        internal DbSet<TEntity> _dbSet;
+
+        public RepositoryBase(WebForLinkContexto context)
         {
-            throw new NotImplementedException();
+            this._context = context;
+            this._dbSet = context.Set<TEntity>();
+        }
+        public RepositoryBase()
+        {
+            this._context = new WebForLinkContexto();
+            this._dbSet = new WebForLinkContexto().Set<TEntity>();
         }
 
-        public T Insert(T entity)
+        public TEntity Insert(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Add(entity);
+            return entity;
         }
 
-        public IQueryable<T> Select()
+        public IQueryable<TEntity> Select()
         {
-            throw new NotImplementedException();
+            return _dbSet;         
+        }
+        public TEntity Select(TEntity entity)
+        {
+            var pkey = _dbSet.Create().GetType().GetProperty("id").GetValue(entity);
+            var set = _context.Set<TEntity>();
+            TEntity attachedEntity = set.Find(pkey);
+            return attachedEntity;
         }
 
-        public T Select(int id)
+        public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            var entry = _context.Entry<TEntity>(entity);
+            var pkey = _dbSet.Create().GetType().GetProperty("id").GetValue(entity);
+
+            if (entry.State == EntityState.Detached)
+            {
+                var set = _context.Set<TEntity>();
+                TEntity attachedEntity = set.Find(pkey);  // access the key 
+                if (attachedEntity != null)
+                {
+                    var attachedEntry = _context.Entry(attachedEntity);
+                    attachedEntry.CurrentValues.SetValues(entity);
+                }
+                else
+                {
+                    entry.State = EntityState.Modified; // attach the entity 
+                }
+            }
+        }
+        public void Delete(TEntity entity)
+        {
+            if (_context.Entry(entity).State == EntityState.Detached)
+            {
+                _dbSet.Attach(entity);
+            }
+            _dbSet.Remove(entity);
         }
 
-        public void Update(T entity)
-        {
-            throw new NotImplementedException();
-        }
 
         public void Dispose()
         {
-            //if (_context != null)
-            //{
-            //    _context.Dispose();
-            //}
+            _context.SaveChanges();
+            _dbSet = null;
+            _context.Dispose();
             GC.SuppressFinalize(this);
         }
     }
